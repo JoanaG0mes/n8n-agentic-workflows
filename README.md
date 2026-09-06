@@ -1,85 +1,116 @@
-# ⚡ n8n Agentic Workflows: Guia de Automação & Agentes de IA
+# 📓 Miniguia de Estudos: A Ascensão do n8n como Orquestrador Universal de IA
 
-> Um guia prático e simplificado para entender, instalar e construir automações inteligentes e agentes de IA utilizando o **n8n**.
-
----
-
-## 💡 O que é o n8n?
-
-O **n8n** (pronuncia-se *nodemation*) é uma ferramenta de automação **low-code** e de código aberto. Ele funciona como uma "ponte universal" que conecta diferentes sistemas, aplicativos, bancos de dados e modelos de Inteligência Artificial sem a necessidade de escrever códigos complexos.
-
-### 🧱 Os 3 Pilares da Automação Moderna
-
-```text
-               ┌─────────────────────────────────────────┐
-               │    ORQUESTRADOR DE AUTOMAÇÃO (n8n)      │
-               └────────────────────┬────────────────────┘
-                                    │
-         ┌──────────────────────────┼──────────────────────────┐
-         ▼                          ▼                          ▼
-  🧠 INTELIGÊNCIA ARTIFICIAL   ⚙️ CÓDIGO DETERMINÍSTICO     👤 SUPERVISÃO HUMANA
-  Processa textos, toma        Executa regras fixas,       Garante segurança e
-  decisões e entende           envia dados e roda de       aprova ações críticas
-  contextos (LLMs).            forma rápida e previsível.  (Human-in-the-Loop).
-```
+> **Desafio de Projeto DIO:** Treinando uma IA de Aprendizagem com o NotebookLM  
+> **Bootcamp:** Santander 2026 - Automação com N8N  
+> **Autora:** Joana Gomes  
 
 ---
 
-## 🎯 Para quem é este repositório?
+## 🎯 Contexto e Objetivos
 
-- 🛠️ **Desenvolvedores:** Querem integrar APIs, webhooks e scripts (Python/JavaScript) de forma visual e rápida.
-- 📊 **Profissionais de Operações:** Querem automatizar tarefas repetitivas (como leitura de e-mails, atualização de CRMs e planilhas).
-- 🛡️ **Equipes de TI e Segurança:** Precisam manter total controle e privacidade sobre os dados rodando o n8n em servidores próprios.
+Este repositório é a entrega oficial do **Desafio de Projeto de Aprendizagem Ativa com o NotebookLM** da plataforma [DIO](https://dio.me).
 
----
+### 📍 Assunto Escolhido
+**A Ascensão do n8n como Orquestrador Universal de IA e Agentes Autônomos em Produção.**
 
-## 🤖 Como funcionam os Agentes de IA no n8n?
-
-Em vez de uma automação engessada que só faz uma tarefa fixa, um **Agente de IA no n8n** possui:
-
-1. **🧠 Cérebro (Modelo de IA):** Escolha qualquer IA como OpenAI (GPT-4o), Google Gemini, Claude 3.5 ou modelos locais (via Ollama).
-2. **📋 Instruções (Prompt):** Regras claras de como a IA deve se comportar.
-3. **💬 Memória (Contexto):** Lembra do histórico de conversas anteriores.
-4. **🛠️ Ferramentas (Tools):** Conectores nativos do n8n (ex: enviar e-mail no Gmail, buscar em planilhas ou enviar mensagens no WhatsApp/Slack).
+### 🎯 Objetivos de Estudo
+1. Compreender a transição do n8n de um automatizador *low-code* tradicional para a camada de orquestração de Inteligência Artificial.
+2. Mapear as 15 boas práticas para implantação segura de Agentes de IA em ambientes de produção.
+3. Entender a infraestrutura necessária para suportar alta escala (Queue Mode, Redis e arquitetura *Self-Hosted*).
+4. Criar um conjunto reutilizável de prompts e um glossário de conceitos para consulta no TCC e no mercado.
 
 ---
 
-## ⚙️ Modos de Uso e Escala (Resumo Simples)
+## 📚 Curadoria de Fontes
 
-| Conceito | O que significa na prática? |
+Para alimentar o caderno temático no **NotebookLM**, foram selecionadas 16 fontes abertas especializadas (artigos de engenharia, entrevistas com o fundador Jan Oberhauser e documentações de arquitetura).
+
+| # | Fonte / Título | Tipo de Fonte | Link / Referência |
+|:-:|:---|:---|:---|
+| 1 | *“It can literally kill your company”: n8n's case for model-agnostic AI* | Artigo de Notícias (TNW) | [The Next Web](https://thenextweb.com) |
+| 2 | *15 best practices for deploying AI agents in production* | Blog de Engenharia | [n8n Official Blog](https://n8n.io/blog) |
+| 3 | *Building the Universal AI Automation Layer ft. Jan Oberhauser* | Entrevista em Vídeo/Podcast | YouTube / Accel Media |
+| 4 | *n8n licenses: Fair-code, Community and Enterprise* | Documentação Técnica | DigitalCube AI |
+| 5 | *Nodes vs. Brains: The Shift from Automation to Agents* | Artigo Analítico | Taskade & n8n Docs |
+
+---
+
+## 🧪 Engenharia de Prompts, Testes e "Cicatrizes" (Troubleshooting)
+
+Durante a exploração das fontes no NotebookLM, foram testadas diferentes abordagens de prompts para extrair insights práticos.
+
+### ❓ Teste 1: Raciocínio de Negócio e Posicionamento
+- **Prompt Utilizado:** `"Como a n8n se tornou a camada de orquestração para IA?"`
+- **Resultado da IA:** A IA resumiu os 5 pilares estratégicos (Encanamento de dados, Fazer parte da cadeia de valor, Integração com LangChain, Tríade Humano+Código+IA e Neutralidade de Modelos).
+- **Aprendizado/Cicatriz:** Perguntas muito abertas geram resumos conceituais. Foi necessário pedir detalhes práticos de infraestrutura para sair da teoria.
+
+### ❓ Teste 2: Otimização de Infraestrutura e Resolução de Gargalos
+- **Prompt Utilizado:** `"Discuss what these sources say about Queue Mode e Redis, in the larger context of Configuração de Infraestrutura."`
+- **Resultado da IA:** Explicou detalhadamente o desacoplamento de agendamento e execução através do Redis e workers independentes.
+- **Troubleshooting Encontrado:** Inicialmente a resposta mencionou apenas "escalabilidade". Refinei o prompt exigindo os comandos de configuração em Docker/Kubernetes e o tratamento para filas congestionadas.
+
+### ❓ Teste 3: Instrução de Idioma e Formato
+- **Prompt Utilizado:** `"deixe em portugues e cancele os outros videos e slides que ainda estão em andamento ok?"`
+- **Resultado da IA:** A IA manteve o idioma em português, mas explicou educadamente que modelos de linguagem não têm permissão para cancelar tarefas assíncronas ativas no front-end do Studio.
+- **Aprendizado:** Entender os limites operacionais das ferramentas de IA Generativa.
+
+---
+
+## 📖 Miniguia de Estudo (Entrega Final)
+
+### 📄 1. Resumo Estruturado do Assunto
+
+#### 🚀 A Evolução do n8n
+- **O Encanamento de Dados:** A IA (LLM) precisa de dados reais (do Gmail, Salesforce, Notion). O n8n é a infraestrutura que entrega esses dados com segurança.
+- **A Tríade de Produção:**
+  1. **Inteligência Artificial:** Raciocínio probabilístico e compreensão de contexto.
+  2. **Código Determinístico:** Caminhos rápidos, baratos e previsíveis sem alucinações.
+  3. **Supervisão Humana (Human-in-the-Loop):** Controle de risco e aprovação final de ações sensíveis.
+
+#### ⚙️ Infraestrutura de Alta Concorrência
+- **Queue Mode & Redis:** Separa o disparo do gatilho da execução do fluxo.
+- **Workers:** Executores em contêineres separados que limpam a fila do Redis sem sobrecarregar a aplicação principal.
+- **Model-Agnosticism:** Liberdade para alternar entre OpenAI, Google Gemini, Anthropic Claude ou modelos locais sem aprisionamento tecnológico (*lock-in*).
+
+---
+
+### 📚 2. Glossário de Conceitos Aprendidos
+
+| Termo | Definição Prática |
 |:---|:---|
-| **n8n Cloud** | Versão em nuvem pronta para uso imediato sem precisar instalar nada no seu computador. |
-| **Self-Hosted (Local/Docker)** | Instalação gratuita em servidor próprio, garantindo total privacidade dos seus dados. |
-| **Queue Mode (Modo Fila)** | Configuração avançada usando **Redis** para que milhares de automações rodem ao mesmo tempo sem travar o sistema. |
-| **Model-Agnostic** | O n8n não prende você a uma única empresa de IA. Você pode trocar entre OpenAI, Gemini ou Claude quando quiser. |
+| **Queue Mode (Modo Fila)** | Arquitetura distribuída do n8n que usa o Redis para gerenciar a fila de execução sob alta carga. |
+| **Human-in-the-Loop (HITL)** | Padrão onde o fluxo de IA pausa e aguarda uma validação humana (ex: aprovar rascunho de e-mail) antes de concluir. |
+| **Model-Agnostic** | Capacidade de trocar de modelo de IA sem precisar refazer a automação. |
+| **RAG (Retrieval-Augmented Generation)** | Técnica de conectar a IA a um banco de dados vetorial para responder com base em documentos reais e sem alucinações. |
+| **Fair-code License** | Licença sustentável do n8n que permite uso interno comercial gratuito, mas proíbe a revenda da plataforma hospedada. |
 
 ---
 
-## 🔒 Segurança e Boas Práticas
+### 🔁 3. Prompts Reutilizáveis para Estudos Futuros
 
-- 🔑 **Credenciais Criptografadas:** Senhas e chaves de API nunca ficam expostas no fluxo de trabalho.
-- 🛡️ **Proteção contra Injeção de Prompt:** Higienização de textos recebidos de usuários antes de enviar para a IA.
-- 👨‍💻 **Aprovação Humana:** Para ações sensíveis (como enviar um e-mail importante ou fazer pagamentos), a IA gera a resposta e aguarda sua aprovação antes de disparar.
+Você pode utilizar estes prompts no seu NotebookLM ou ChatGPT para estudar novos tópicos:
+
+1. **Prompt de Síntese Arquitetural:**
+   > *"Com base nas fontes anexadas, analise a arquitetura recomendada para implantar [TECNOLOGIA] em um ambiente corporativo de produção. Destaque pontos de falha e soluções de infraestrutura."*
+
+2. **Prompt de Comparativo Técnico:**
+   > *"Compare as vantagens e limitações de usar [OPÇÃO A - Cloud] vs [OPÇÃO B - Self-Hosted/Docker] considerando custos, privacidade de dados e complexidade de manutenção."*
+
+3. **Prompt de Caso de Uso Prático:**
+   > *"Extraia das fontes 3 exemplos reais de empresas que aplicaram [ASSUNTO] para resolver problemas operacionais e liste as métricas de sucesso obtidas."*
 
 ---
 
-## 🚀 Como Rodar Localmente (Via Docker)
+## 🚀 Como Executar o Projeto Localmente (n8n via Docker)
 
-Se você tem o Docker instalado na sua máquina, pode rodar o n8n em 1 minuto:
+Caso queira testar a infraestrutura abordada no miniguia:
 
 ```bash
 docker run -d --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n n8nio/n8n:latest
 ```
-
-Após rodar o comando, abra o seu navegador e acesse: `http://localhost:5678`
+Acesse em: `http://localhost:5678`
 
 ---
 
-## 📂 Estrutura das Pastas
-
-```text
-.
-├── workflows/   # Fluxos de automação prontos para importar (arquivos .json)
-├── docker/      # Arquivos de configuração de servidores (Docker Compose + Redis)
-└── README.md    # Este guia prático e explicativo
-```
+## 📄 Licença e Créditos
+Projeto desenvolvido como parte do **Bootcamp Santander 2026 - Automação com N8N** na plataforma [DIO](https://dio.me).
